@@ -46,6 +46,17 @@ button:active{
 
 }
 
+.colorPrompt{
+    width: 200px;
+    height: 50px;
+    border-radius: 10px;
+    border: 1px solid black;
+    background-color: #f1f1f1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 17px;
+}
 
 
 
