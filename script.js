@@ -2,7 +2,6 @@ let gridContainer = document.querySelector(".gridContainer");
 let currentColor = "black";
 let currentlyActive = false;
 
-
 //create the grid with the size of the slider
 // and call the colorSquare function when mouse is over the squares
 // using appendChild instead of insertAdjacentElement because it is faster
@@ -43,7 +42,6 @@ gridContainer.addEventListener('click', () => {
         document.querySelector('.mode').textContent = "Mode: Not Coloring";
     }
 });
-
 
 // color picker function to change the color of the squares
 const chooseColor = document.querySelector('#color');
