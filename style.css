@@ -35,7 +35,7 @@ button:active{
 }
 
 .slider{
-    width: 200px;
+    width: 350px;
     height: 50px;
     border-radius: 10px;
     border: 1px solid black;
@@ -71,8 +71,6 @@ button:active{
 .gridContainer{
     margin-top: 10px;
     display: grid;
-    grid-template-columns: repeat(16, 2fr);
-    grid-template-rows: repeat(16, 2fr);
     z-index: 100;
     border: 5px solid rgb(3, 0, 0);
     border-radius: 5px;

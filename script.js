@@ -2,19 +2,28 @@ let gridContainer = document.querySelector(".gridContainer");
 let currentColor = "black";
 let currentlyActive = false;
 
-function createGrid(size){
 
-for (let i = 0; i < size*size; i++) {
-    gridContainer.style.gridTemplateColumns = "repeat(${size}, 1fr)";
-    gridContainer.style.gridTemplateRows = "repeat(${size}, 1fr)";
-    let square = document.createElement("div");
-    square.style.backgroundColor = "white";
-    square.style.border = "1px solid black";
-    square.addEventListener('mouseover', colorSquare);
-    gridContainer.insertAdjacentElement("beforeend", square);
+//create the grid with the size of the slider
+// and call the colorSquare function when mouse is over the squares
+// using appendChild instead of insertAdjacentElement because it is faster
+// Also, add a border to the squares to make them visible
+// and make the background of the squares white
+
+function createGrid(size){
+    gridContainer.style.gridTemplateColumns = `repeat(${size}, 1fr)`;
+    gridContainer.style.gridTemplateRows = `repeat(${size}, 1fr)`;
+    for(let i = 0; i < size * size; i++){
+        let square = document.createElement('div');
+        square.classList.add('square');
+        square.style.border = "1px solid black";
+        square.style.backgroundColor = "white";
+
+        square.addEventListener('mouseover', colorSquare);
+        gridContainer.appendChild(square);
     }
 }
 
+// create the grid with the size of 16
 createGrid(16);
 
 // color the squares when mouse is over them
@@ -42,17 +51,23 @@ chooseColor.addEventListener('input', function(){
     currentColor = this.value;
 });
 
-// reset button function to make the background of the squares white
-// and change color back to black
-// and show the current color in the color picker
+// When reset button is clicked, make all the squares white
+// and make the color picker show black and the slider show 16
+// and make the grid 16x16
 
 const resetButton = document.querySelector('#reset');
 resetButton.addEventListener('click', function(){
     let squares = document.querySelectorAll('.gridContainer div');
-    squares.forEach(square => square.style.backgroundColor = 'white');
+    squares.forEach(square => square.style.backgroundColor = "white");
 
     currentColor = "black";
-    chooseColor.value = currentColor;
+    chooseColor.value = "black";
+    slider.value = 16;
+    document.querySelector('.value').textContent = 16;
+
+    let squares2 = document.querySelectorAll('.gridContainer div');
+    squares2.forEach(square => square.remove());
+    createGrid(16);
 });
 
 // slider function to change the size of the grid
@@ -64,6 +79,12 @@ slider.addEventListener('input', function(){
     createGrid(this.value);
 });
 
-// when page is reset, make color picker show black
+// when page is reset, make color picker show black and slider show 16
 chooseColor.value = currentColor;
+slider.value = 16;
 
+// As the user changes the slider, the slider value is shown
+
+slider.addEventListener('input', function(){
+    document.querySelector('.value').textContent = this.value;
+});
