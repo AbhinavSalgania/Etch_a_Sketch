@@ -3,6 +3,7 @@ body{
     justify-content: center;
     align-items: center;
     flex-direction: column;
+    background-color: #b56d6d;
 }
 
 .btns{
@@ -58,21 +59,34 @@ button:active{
     font-size: 17px;
 }
 
+/* Mode to be just above the sketchpad */
+
+.mode{
+    margin-top: 20px;
+    font-size: 20px;
+    font-weight: bold;
+}
 
 
 .gridContainer{
-    margin-top: 50px;
+    margin-top: 10px;
     display: grid;
     grid-template-columns: repeat(16, 2fr);
     grid-template-rows: repeat(16, 2fr);
     z-index: 100;
     border: 5px solid rgb(3, 0, 0);
     border-radius: 5px;
-    height: 575px;
-    width: 575px;
+    height: 500px;
+    width: 500px;
 }
 
 .cell{
     background-color: white;
     border: 1px solid black;
+}
+
+footer{
+    margin-top: 20px;
+    font-size: 15px;
+    font-weight: bold;
 }
