@@ -39,7 +39,7 @@ gridContainer.addEventListener('click', () => {
     if(currentlyActive){
         document.querySelector('.mode').textContent = "Mode: Coloring";
     } else {
-        document.querySelector('.mode').textContent = "Mode: Not Coloring";
+        document.querySelector('.mode').textContent = "Mode: Not Coloring, Click on the board to start.";
     }
 });
 
